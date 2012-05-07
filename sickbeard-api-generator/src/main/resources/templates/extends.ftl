@@ -1,0 +1,1 @@
+<#list extends as extend><#if extend_index == 0> extends<#else>,</#if> ${extend}</#list>

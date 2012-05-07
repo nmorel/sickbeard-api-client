@@ -1,0 +1,16 @@
+{
+    "data": [
+        {
+            "default": 0, 
+            "location": "S:\\Invalid_Location", 
+            "valid": 0
+        }, 
+        {
+            "default": 1, 
+            "location": "D:\\SickBeard_TV", 
+            "valid": 1
+        }
+    ], 
+    "message": "Root directory deleted", 
+    "result": "success"
+}

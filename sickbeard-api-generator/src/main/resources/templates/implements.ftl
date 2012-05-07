@@ -1,0 +1,1 @@
+<#list implements as impl><#if impl_index == 0> implements<#else>,</#if> ${impl}</#list>

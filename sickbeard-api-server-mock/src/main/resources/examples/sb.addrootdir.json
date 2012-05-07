@@ -1,0 +1,21 @@
+{
+    "data": [
+        {
+            "default": 0, 
+            "location": "S:\\Invalid_Location", 
+            "valid": 0
+        }, 
+        {
+            "default": 1, 
+            "location": "C:\\Temp", 
+            "valid": 1
+        }, 
+        {
+            "default": 0, 
+            "location": "D:\\SickBeard_TV", 
+            "valid": 1
+        }
+    ], 
+    "message": "Root directories updated", 
+    "result": "success"
+}

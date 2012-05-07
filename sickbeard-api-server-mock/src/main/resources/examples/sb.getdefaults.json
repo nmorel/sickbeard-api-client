@@ -1,0 +1,18 @@
+{
+    "data": {
+        "archive": [
+            "hdtv", 
+            "hdbluray", 
+            "hdwebdl"
+        ], 
+        "future_show_paused": 1, 
+        "initial": [
+            "sddvd", 
+            "sdtv"
+        ], 
+        "season_folders": 1, 
+        "status": "Skipped"
+    }, 
+    "message": "", 
+    "result": "success"
+}

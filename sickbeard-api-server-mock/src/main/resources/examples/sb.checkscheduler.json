@@ -1,0 +1,12 @@
+{
+    "data": {
+        "backlog_is_paused": 0, 
+        "backlog_is_running": 1, 
+        "last_backlog": "2011-09-18", 
+        "next_backlog": "2011-10-09", 
+        "next_search": "16:38:49", 
+        "search_is_running": 0
+    }, 
+    "message": "", 
+    "result": "success"
+}

@@ -1,0 +1,5 @@
+{
+    "data": {}, 
+    "message": "Removed history entries greater than 30 days old", 
+    "result": "success"
+}

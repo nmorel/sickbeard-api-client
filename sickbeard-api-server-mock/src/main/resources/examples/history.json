@@ -1,0 +1,30 @@
+{
+    "data": [
+        {
+            "date": "2011-08-19 12:58", 
+            "episode": 4, 
+            "provider": "-1", 
+            "quality": "SD TV", 
+            "resource": "project.runway.s09e04.all.about.nina.hdtv.xvid-crimson.avi", 
+            "resource_path": "C:\\Users\\sickbeard\\Documents\\downloads\\complete\\TV\\Project.Runway.S09E04.All.About.Nina.HDTV.XviD-CRiMSON", 
+            "season": 9, 
+            "show_name": "Project Runway", 
+            "status": "Downloaded", 
+            "tvdbid": 74285
+        }, 
+        {
+            "date": "2011-08-19 12:25", 
+            "episode": 4, 
+            "provider": "NZBs.org", 
+            "quality": "SD TV", 
+            "resource": "Project.Runway.S09E04.All.About.Nina.HDTV.XviD-CRiMSON", 
+            "resource_path": "", 
+            "season": 9, 
+            "show_name": "Project Runway", 
+            "status": "Snatched", 
+            "tvdbid": 74285
+        }
+    ], 
+    "message": "", 
+    "result": "success"
+}

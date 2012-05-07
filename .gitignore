@@ -1,1 +1,33 @@
-target/
+# /
+/.project
+/.settings
+
+# /sickbeard-api-client/
+/sickbeard-api-client/.classpath
+/sickbeard-api-client/.project
+/sickbeard-api-client/.settings
+/sickbeard-api-client/target
+
+# /sickbeard-api-client-test/
+/sickbeard-api-client-test/.classpath
+/sickbeard-api-client-test/.project
+/sickbeard-api-client-test/.settings
+/sickbeard-api-client-test/target
+
+# /sickbeard-api-generator/
+/sickbeard-api-generator/.classpath
+/sickbeard-api-generator/.project
+/sickbeard-api-generator/.settings
+/sickbeard-api-generator/target
+
+# /sickbeard-api-model/
+/sickbeard-api-model/.classpath
+/sickbeard-api-model/.project
+/sickbeard-api-model/.settings
+/sickbeard-api-model/target
+
+# /sickbeard-api-server-mock/
+/sickbeard-api-server-mock/.classpath
+/sickbeard-api-server-mock/.project
+/sickbeard-api-server-mock/.settings
+/sickbeard-api-server-mock/target

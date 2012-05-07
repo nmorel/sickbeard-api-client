@@ -1,0 +1,55 @@
+{
+    "data": {
+        "missed": [
+            {
+                "airdate": "2011-11-21", 
+                "airs": "Monday 8:00 PM", 
+                "ep_name": "The Rebound Girl", 
+                "ep_plot": "Ted and Barney discuss making a life-changing decision together, and Robin tries to discourage Marshall and Lily from moving to Long Island.", 
+                "episode": 11, 
+                "network": "CBS", 
+                "paused": 0, 
+                "quality": "HD", 
+                "season": 7, 
+                "show_name": "How I Met Your Mother", 
+                "show_status": "Continuing", 
+                "tvdbid": 75760, 
+                "weekday": 1
+            }, 
+            {
+                "airdate": "2011-11-21", 
+                "airs": "Monday 10:00 PM", 
+                "ep_name": "Kill Shot", 
+                "ep_plot": "A sniper on a killing spree is terrorizing New York City. With the clock ticking down to the next murder and nothing to go on except a killer with no apparent motive but to instill terror, this could prove the team's toughest case yet. The hunt is made even more complicated when Beckett begins to experience increasingly strong moments of PTSD - moments she tries hard to hide from Castle and the detectives.", 
+                "episode": 9, 
+                "network": "ABC", 
+                "paused": 1, 
+                "quality": "SD", 
+                "season": 4, 
+                "show_name": "Castle (2009)", 
+                "show_status": "Continuing", 
+                "tvdbid": 83462, 
+                "weekday": 1
+            }
+        ], 
+        "today": [
+            {
+                "airdate": "2011-11-22", 
+                "airs": "Monday 8:00 PM", 
+                "ep_name": "Smoked Turkey", 
+                "ep_plot": "Dixon tries to pursue a relationship with a resistant Adrianna, while Ivy and Raj\u2019s arguing takes a toll on their relationship. Liam plans a holiday dinner for the gang, and an unexpected guest shows up. Meanwhile, Naomi goes to extremes to prove her love to Austin.", 
+                "episode": 10, 
+                "network": "The CW", 
+                "paused": 0, 
+                "quality": "SD", 
+                "season": 4, 
+                "show_name": "90210", 
+                "show_status": "Continuing", 
+                "tvdbid": 82716, 
+                "weekday": 2
+            }
+        ]
+    }, 
+    "message": "", 
+    "result": "success"
+}

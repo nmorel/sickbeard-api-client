@@ -1,0 +1,20 @@
+{
+    "data": [
+        "Aug-10 02:57:36 INFO     SHOWQUEUE-REFRESH :: No new cache images needed, not retrieving new ones", 
+        "Aug-10 02:57:36 INFO     SHOWQUEUE-REFRESH :: Checking & filling cache for show True Blood", 
+        "Aug-10 02:57:36 INFO     SHOWQUEUE-REFRESH :: 82283: Writing NFOs for all episodes", 
+        "Aug-10 02:57:36 INFO     SHOWQUEUE-REFRESH :: 82283: Loading all episodes with a location from the database", 
+        "Aug-10 02:57:35 INFO     SHOWQUEUE-REFRESH :: 82283: Loading all episodes from the show directory S:\\TV\\True Blood", 
+        "Aug-10 02:57:35 INFO     SHOWQUEUE-REFRESH :: Performing refresh on True Blood", 
+        "Aug-10 02:54:36 WARNING  SHOWQUEUE-FORCE-UPDATE :: Unable to add TVRage info: Show is already in database, not adding the TVRage info", 
+        "Aug-10 02:54:36 INFO     SHOWQUEUE-FORCE-UPDATE :: Checking the last aired episode to see if the dates match between TVDB and TVRage", 
+        "Aug-10 02:54:32 INFO     SHOWQUEUE-FORCE-UPDATE :: 95011: Loading all episodes from theTVDB...", 
+        "Aug-10 02:54:30 INFO     SHOWQUEUE-FORCE-UPDATE :: Loading all episodes from the DB", 
+        "Aug-10 02:54:30 INFO     SHOWQUEUE-FORCE-UPDATE :: 95011: Loading show info from theTVDB", 
+        "Aug-10 02:54:30 INFO     SHOWQUEUE-FORCE-UPDATE :: Beginning update of Modern Family", 
+        "Aug-10 02:54:25 ERROR    SEARCHQUEUE-BACKLOG-248261 :: No NZB/Torrent providers found or enabled in the sickbeard config. Please check your settings.", 
+        "Aug-10 02:54:25 INFO     SEARCHQUEUE-BACKLOG-248261 :: Searching for stuff we need from NTSF:SD:SUV:: season 1"
+    ], 
+    "message": "", 
+    "result": "success"
+}
