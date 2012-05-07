@@ -1,5 +1,9 @@
 package com.github.nmorel.sickbeard.model.enums;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.github.nmorel.sickbeard.model.deserializer.ResultEnumDeserializer;
+
+@JsonDeserialize( using = ResultEnumDeserializer.class )
 public enum ResultEnum
 {
     SUCCESS( "success" ), FAILURE( "failure" ), TIMEOUT( "timeout" ), ERROR( "error" ), FATAL( "fatal" ), DENIED_RESULT( "denied result" );

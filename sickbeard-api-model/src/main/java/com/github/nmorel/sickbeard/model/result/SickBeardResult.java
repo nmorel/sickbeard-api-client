@@ -3,7 +3,6 @@ package com.github.nmorel.sickbeard.model.result;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
-import com.github.nmorel.sickbeard.model.deserializer.ResultEnumDeserializer;
 import com.github.nmorel.sickbeard.model.enums.ResultEnum;
 import com.github.nmorel.sickbeard.model.result.SickBeardResult.Builder;
 
@@ -17,7 +16,6 @@ public class SickBeardResult
 
         private String message;
 
-        @JsonDeserialize( using = ResultEnumDeserializer.class )
         private ResultEnum result;
 
         public Builder data( JsonNode data )

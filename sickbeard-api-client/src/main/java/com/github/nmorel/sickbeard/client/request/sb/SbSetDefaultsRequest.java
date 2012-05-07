@@ -54,7 +54,7 @@ public class SbSetDefaultsRequest
                 {
                     builder.append( PARAM_SEPARATOR );
                 }
-                builder.append( quality.getParamId() );
+                builder.append( quality.getSickBeardValue() );
             }
         }
         setParameter( PARAM_ARCHIVE, builder.toString() );
@@ -86,7 +86,7 @@ public class SbSetDefaultsRequest
                 {
                     builder.append( PARAM_SEPARATOR );
                 }
-                builder.append( quality.getParamId() );
+                builder.append( quality.getSickBeardValue() );
             }
         }
         setParameter( PARAM_INITIAL, builder.toString() );
@@ -111,7 +111,7 @@ public class SbSetDefaultsRequest
      */
     public SbSetDefaultsRequest setStatus( Status status )
     {
-        setParameter( PARAM_STATUS, status.getParamId() );
+        setParameter( PARAM_STATUS, status.getSickBeardValue() );
         return this;
     }
 

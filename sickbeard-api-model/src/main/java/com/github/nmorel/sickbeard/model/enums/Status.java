@@ -1,18 +1,37 @@
 package com.github.nmorel.sickbeard.model.enums;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.github.nmorel.sickbeard.model.deserializer.StatusDeserializer;
+
+@JsonDeserialize( using = StatusDeserializer.class )
 public enum Status
 {
     WANTED( "wanted" ), SKIPPED( "skipped" ), ARCHIVED( "archived" ), IGNORED( "ignored" );
 
-    private String paramId;
+    private String sickBeardValue;
 
-    private Status( String paramId )
+    private Status( String sickBeardValue )
     {
-        this.paramId = paramId;
+        this.sickBeardValue = sickBeardValue;
     }
 
-    public String getParamId()
+    public String getSickBeardValue()
     {
-        return paramId;
+        return sickBeardValue;
+    }
+
+    public static Status fromSickBeardValue( String sickBeardValue )
+    {
+        if ( null != sickBeardValue )
+        {
+            for ( Status status : values() )
+            {
+                if ( status.getSickBeardValue().equalsIgnoreCase( sickBeardValue ) )
+                {
+                    return status;
+                }
+            }
+        }
+        return null;
     }
 }
