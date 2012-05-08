@@ -10,16 +10,22 @@ import com.github.nmorel.sickbeard.client.SickBeardConfig;
 import com.github.nmorel.sickbeard.client.request.GenericListRequest;
 import com.github.nmorel.sickbeard.model.result.RootDir;
 
-public class SbGetRootDirsRequest
+public class SbDeleteRootDirRequest
     extends GenericListRequest<RootDir>
 {
-    private static final Logger LOGGER = LoggerFactory.getLogger( SbGetRootDirsRequest.class );
+    private static final Logger LOGGER = LoggerFactory.getLogger( SbDeleteRootDirRequest.class );
 
-    private static final String CMD_NAME = "sb.getrootdirs";
+    private static final String CMD_NAME = "sb.deleterootdir";
+    private static final String PARAM_LOCATION = "location";
 
-    public SbGetRootDirsRequest( SickBeardConfig config )
+    public SbDeleteRootDirRequest( String location, SickBeardConfig config )
     {
         super( config, CMD_NAME );
+        if ( null == location )
+        {
+            throw new IllegalArgumentException( "location is required" );
+        }
+        setParameter( PARAM_LOCATION, location );
     }
 
     @Override

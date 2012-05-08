@@ -7,11 +7,11 @@ import org.slf4j.LoggerFactory;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.github.nmorel.sickbeard.client.SickBeardConfig;
-import com.github.nmorel.sickbeard.client.request.GenericRequest;
+import com.github.nmorel.sickbeard.client.request.GenericListRequest;
 import com.github.nmorel.sickbeard.model.result.Message;
 
 public class SbGetMessagesRequest
-    extends GenericRequest<List<Message>>
+    extends GenericListRequest<Message>
 {
     private static final Logger LOGGER = LoggerFactory.getLogger( SbGetMessagesRequest.class );
 

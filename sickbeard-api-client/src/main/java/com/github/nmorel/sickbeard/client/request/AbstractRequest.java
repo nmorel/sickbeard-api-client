@@ -70,32 +70,47 @@ public abstract class AbstractRequest<T>
     public T call()
         throws SickBeardException
     {
-        getLogger().debug( "Calling SickBeard command '{}' with parameters : {}", getCommand(), method.getParameters() );
-
-        InputStream stream;
-
         try
         {
-            getConfig().getClient().executeMethod( method );
-            stream = method.getResponseBodyAsStream();
-        }
-        catch ( HttpException e )
-        {
-            String message = "Error calling SickBeard";
-            getLogger().error( message, e );
-            throw new SickBeardException( message, e );
-        }
-        catch ( IOException e )
-        {
-            String message = "Error calling SickBeard";
-            getLogger().error( message, e );
-            throw new SickBeardException( message, e );
-        }
 
-        getLogger().debug( "Call successful. Handling the response" );
-        T response = handleResponse( stream );
-        getLogger().debug( "Response handled" );
-        return response;
+            getLogger().debug( "Calling SickBeard command '{}' with parameters : {}", getCommand(), method.getParameters() );
+
+            InputStream stream;
+
+            try
+            {
+                getConfig().getClient().executeMethod( method );
+                stream = method.getResponseBodyAsStream();
+            }
+            catch ( HttpException e )
+            {
+                String message = "Error calling SickBeard";
+                getLogger().error( message, e );
+                throw new SickBeardException( message, e );
+            }
+            catch ( IOException e )
+            {
+                String message = "Error calling SickBeard";
+                getLogger().error( message, e );
+                throw new SickBeardException( message, e );
+            }
+
+            getLogger().debug( "Call successful. Handling the response" );
+            T response = handleResponse( stream );
+            getLogger().debug( "Response handled" );
+            return response;
+
+        }
+        catch ( SickBeardException e )
+        {
+            throw e;
+        }
+        catch ( Exception e )
+        {
+            String message = "Unexpected error";
+            getLogger().error( message, e );
+            throw new SickBeardException( message, e );
+        }
     }
 
     /**

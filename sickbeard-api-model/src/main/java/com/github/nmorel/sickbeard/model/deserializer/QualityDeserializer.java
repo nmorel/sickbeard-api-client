@@ -16,7 +16,12 @@ public class QualityDeserializer
     public Quality deserialize( JsonParser jp, DeserializationContext ctxt )
         throws IOException, JsonProcessingException
     {
-        return Quality.fromSickBeardValue( jp.getText() );
+        String value = jp.getText();
+        if ( null == value || value.isEmpty() )
+        {
+            return null;
+        }
+        return Quality.fromSickBeardValue( value );
     }
 
 }

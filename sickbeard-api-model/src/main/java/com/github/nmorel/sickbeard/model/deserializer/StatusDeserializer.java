@@ -16,7 +16,12 @@ public class StatusDeserializer
     public Status deserialize( JsonParser jp, DeserializationContext ctxt )
         throws IOException, JsonProcessingException
     {
-        return Status.fromSickBeardValue( jp.getText() );
+        String value = jp.getText();
+        if ( null == value || value.isEmpty() )
+        {
+            return null;
+        }
+        return Status.fromSickBeardValue( value );
     }
 
 }

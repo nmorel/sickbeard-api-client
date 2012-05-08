@@ -15,6 +15,11 @@ public class TvdbLangIdToLanguage
     public Language deserialize( JsonParser jp, DeserializationContext ctxt )
         throws IOException, JsonProcessingException
     {
+        String value = jp.getText();
+        if ( null == value || value.isEmpty() )
+        {
+            return null;
+        }
         return Language.fromTvdbId( jp.getIntValue() );
     }
 

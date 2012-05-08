@@ -75,6 +75,11 @@ public class SickBeardGenerator
 
         // retrieve all the commands the api offers
         List<String> apiCommands = retrieveCommands();
+        System.out.println("assertEquals("+apiCommands.size()+", misc.getApiCommands().size());");
+        for(int i = 0; i<apiCommands.size(); i++)
+        {
+            System.out.println( "assertEquals(\""+apiCommands.get( i )+"\", misc.getApiCommands().get("+i+"));" );
+        }
 
         // retrieve the parameters and description of the commands
         Map<String, CommandInfo> commandInfos = retrieveCommandParameters( apiCommands );

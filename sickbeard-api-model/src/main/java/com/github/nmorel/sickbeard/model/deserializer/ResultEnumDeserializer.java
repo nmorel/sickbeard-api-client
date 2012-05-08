@@ -16,7 +16,12 @@ public class ResultEnumDeserializer
     public ResultEnum deserialize( JsonParser jp, DeserializationContext ctxt )
         throws IOException, JsonProcessingException
     {
-        return ResultEnum.fromIdentifier( jp.getText() );
+        String value = jp.getText();
+        if ( null == value || value.isEmpty() )
+        {
+            return null;
+        }
+        return ResultEnum.fromIdentifier( value );
     }
 
 }
