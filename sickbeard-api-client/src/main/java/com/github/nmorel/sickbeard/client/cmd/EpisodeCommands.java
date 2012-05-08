@@ -5,7 +5,7 @@ import com.github.nmorel.sickbeard.client.request.episode.EpisodeSearchRequest;
 import com.github.nmorel.sickbeard.client.request.episode.EpisodeSetStatusRequest;
 import com.github.nmorel.sickbeard.model.enums.Status;
 
-public interface Episode
+public interface EpisodeCommands
 {
     /**
      * Displays the information of a specific episode matching the corresponding tvdbid, season and episode number.

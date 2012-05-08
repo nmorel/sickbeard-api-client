@@ -1,18 +1,18 @@
 package com.github.nmorel.sickbeard.client.cmd.impl;
 
 import com.github.nmorel.sickbeard.client.SickBeardConfig;
-import com.github.nmorel.sickbeard.client.cmd.Episode;
+import com.github.nmorel.sickbeard.client.cmd.EpisodeCommands;
 import com.github.nmorel.sickbeard.client.request.episode.EpisodeDisplayRequest;
 import com.github.nmorel.sickbeard.client.request.episode.EpisodeSearchRequest;
 import com.github.nmorel.sickbeard.client.request.episode.EpisodeSetStatusRequest;
 import com.github.nmorel.sickbeard.model.enums.Status;
 
-public class EpisodeImpl
-    implements Episode
+public class EpisodeCommandsImpl
+    implements EpisodeCommands
 {
     private SickBeardConfig config;
 
-    public EpisodeImpl( SickBeardConfig config )
+    public EpisodeCommandsImpl( SickBeardConfig config )
     {
         this.config = config;
     }

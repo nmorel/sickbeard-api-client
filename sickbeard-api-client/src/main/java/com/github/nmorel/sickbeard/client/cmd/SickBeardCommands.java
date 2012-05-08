@@ -15,7 +15,7 @@ import com.github.nmorel.sickbeard.client.request.sb.SbSearchTvdbRequest;
 import com.github.nmorel.sickbeard.client.request.sb.SbSetDefaultsRequest;
 import com.github.nmorel.sickbeard.client.request.sb.SbShutdownRequest;
 
-public interface SickBeard
+public interface SickBeardCommands
 {
     /**
      * Display misc SickBeard related information. This is also the default command that the api will show if none is

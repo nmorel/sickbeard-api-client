@@ -8,6 +8,7 @@ import java.util.Date;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import com.github.nmorel.sickbeard.client.cmd.EpisodeCommands;
 import com.github.nmorel.sickbeard.client.exceptions.SickBeardException;
 import com.github.nmorel.sickbeard.model.enums.Quality;
 import com.github.nmorel.sickbeard.model.enums.Status;
@@ -17,7 +18,7 @@ import com.github.nmorel.sickbeard.model.result.EpisodeSearch;
 @SuppressWarnings( "deprecation" )
 public class EpisodeTest
 {
-    private static com.github.nmorel.sickbeard.client.cmd.Episode episode;
+    private static EpisodeCommands episode;
 
     @BeforeClass
     public static void setup()

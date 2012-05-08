@@ -3,7 +3,7 @@ package com.github.nmorel.sickbeard.client.cmd;
 import com.github.nmorel.sickbeard.client.request.exceptions.ExceptionsShowRequest;
 import com.github.nmorel.sickbeard.client.request.exceptions.ExceptionsShowsRequest;
 
-public interface Exceptions
+public interface ExceptionsCommands
 {
     /**
      * Display scene exceptions for a given show.

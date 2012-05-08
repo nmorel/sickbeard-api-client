@@ -16,7 +16,7 @@ import org.junit.Test;
 
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
-import com.github.nmorel.sickbeard.client.cmd.SickBeard;
+import com.github.nmorel.sickbeard.client.cmd.SickBeardCommands;
 import com.github.nmorel.sickbeard.client.exceptions.SickBeardException;
 import com.github.nmorel.sickbeard.model.enums.Language;
 import com.github.nmorel.sickbeard.model.enums.Quality;
@@ -32,7 +32,7 @@ import com.github.nmorel.sickbeard.model.result.TvdbSearchResults;
 @SuppressWarnings( "deprecation" )
 public class SickBeardTest
 {
-    private static SickBeard sb;
+    private static SickBeardCommands sb;
 
     @BeforeClass
     public static void setup()

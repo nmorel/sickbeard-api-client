@@ -1,21 +1,25 @@
 package com.github.nmorel.sickbeard.client;
 
-import com.github.nmorel.sickbeard.client.cmd.Episode;
-import com.github.nmorel.sickbeard.client.cmd.Exceptions;
-import com.github.nmorel.sickbeard.client.cmd.SickBeard;
-import com.github.nmorel.sickbeard.client.cmd.impl.EpisodeImpl;
-import com.github.nmorel.sickbeard.client.cmd.impl.ExceptionsImpl;
-import com.github.nmorel.sickbeard.client.cmd.impl.SickBeardImpl;
+import com.github.nmorel.sickbeard.client.cmd.EpisodeCommands;
+import com.github.nmorel.sickbeard.client.cmd.ExceptionsCommands;
+import com.github.nmorel.sickbeard.client.cmd.FutureCommands;
+import com.github.nmorel.sickbeard.client.cmd.SickBeardCommands;
+import com.github.nmorel.sickbeard.client.cmd.impl.EpisodeCommandsImpl;
+import com.github.nmorel.sickbeard.client.cmd.impl.ExceptionsCommandsImpl;
+import com.github.nmorel.sickbeard.client.cmd.impl.FutureCommandsImpl;
+import com.github.nmorel.sickbeard.client.cmd.impl.SickBeardCommandsImpl;
 
 public class SickBeardClient
 {
     private SickBeardConfig config;
 
-    private SickBeard sb;
+    private SickBeardCommands sb;
 
-    private Episode episode;
+    private EpisodeCommands episode;
 
-    private Exceptions exceptions;
+    private ExceptionsCommands exceptions;
+
+    private FutureCommands future;
 
     public SickBeardClient( String url )
     {
@@ -27,31 +31,40 @@ public class SickBeardClient
         this.config = config;
     }
 
-    public SickBeard sb()
+    public SickBeardCommands sb()
     {
         if ( null == sb )
         {
-            sb = new SickBeardImpl( config );
+            sb = new SickBeardCommandsImpl( config );
         }
         return sb;
     }
 
-    public Episode episode()
+    public EpisodeCommands episode()
     {
         if ( null == episode )
         {
-            episode = new EpisodeImpl( config );
+            episode = new EpisodeCommandsImpl( config );
         }
         return episode;
     }
 
-    public Exceptions exceptions()
+    public ExceptionsCommands exceptions()
     {
         if ( null == exceptions )
         {
-            exceptions = new ExceptionsImpl( config );
+            exceptions = new ExceptionsCommandsImpl( config );
         }
         return exceptions;
+    }
+
+    public FutureCommands future()
+    {
+        if ( null == future )
+        {
+            future = new FutureCommandsImpl( config );
+        }
+        return future;
     }
 
 }

@@ -1,7 +1,7 @@
 package com.github.nmorel.sickbeard.client.cmd.impl;
 
 import com.github.nmorel.sickbeard.client.SickBeardConfig;
-import com.github.nmorel.sickbeard.client.cmd.SickBeard;
+import com.github.nmorel.sickbeard.client.cmd.SickBeardCommands;
 import com.github.nmorel.sickbeard.client.request.sb.SbAddRootDirRequest;
 import com.github.nmorel.sickbeard.client.request.sb.SbCheckSchedulerRequest;
 import com.github.nmorel.sickbeard.client.request.sb.SbDeleteRootDirRequest;
@@ -17,12 +17,12 @@ import com.github.nmorel.sickbeard.client.request.sb.SbSearchTvdbRequest;
 import com.github.nmorel.sickbeard.client.request.sb.SbSetDefaultsRequest;
 import com.github.nmorel.sickbeard.client.request.sb.SbShutdownRequest;
 
-public class SickBeardImpl
-    implements SickBeard
+public class SickBeardCommandsImpl
+    implements SickBeardCommands
 {
     private SickBeardConfig config;
 
-    public SickBeardImpl( SickBeardConfig config )
+    public SickBeardCommandsImpl( SickBeardConfig config )
     {
         this.config = config;
     }

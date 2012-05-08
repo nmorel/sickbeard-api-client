@@ -8,12 +8,12 @@ import java.util.Map;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import com.github.nmorel.sickbeard.client.cmd.Exceptions;
+import com.github.nmorel.sickbeard.client.cmd.ExceptionsCommands;
 import com.github.nmorel.sickbeard.client.exceptions.SickBeardException;
 
 public class ExceptionsTest
 {
-    private static Exceptions exceptions;
+    private static ExceptionsCommands exceptions;
 
     @BeforeClass
     public static void setup()
