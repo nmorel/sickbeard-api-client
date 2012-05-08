@@ -7,15 +7,12 @@ import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
-import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import com.fasterxml.jackson.core.JsonParseException;
-import com.fasterxml.jackson.databind.JsonMappingException;
 import com.github.nmorel.sickbeard.client.cmd.SickBeardCommands;
 import com.github.nmorel.sickbeard.client.exceptions.SickBeardException;
 import com.github.nmorel.sickbeard.model.enums.Language;
@@ -42,21 +39,21 @@ public class SickBeardTest
 
     @Test
     public void pauseBacklogTest()
-        throws JsonParseException, JsonMappingException, IOException, SickBeardException
+        throws SickBeardException
     {
         assertNull( sb.pauseBacklog().setPause( true ).call() );
     }
 
     @Test
     public void pingTest()
-        throws JsonParseException, JsonMappingException, IOException, SickBeardException
+        throws SickBeardException
     {
         assertEquals( 13152, sb.ping().call().getPid() );
     }
 
     @Test
     public void searchTvdbTest()
-        throws JsonParseException, JsonMappingException, IOException, SickBeardException
+        throws SickBeardException
     {
         TvdbSearchResults results = sb.searchTvdb().setLang( Language.FR ).setName( "test" ).call();
         assertEquals( Language.EN, results.getLanguage() );
@@ -75,28 +72,28 @@ public class SickBeardTest
 
     @Test
     public void setDefaultsTest()
-        throws JsonParseException, JsonMappingException, IOException, SickBeardException
+        throws SickBeardException
     {
         assertNull( sb.setDefaults().setArchive( Quality.HD_BR, Quality.FULL_HD_BR ).call() );
     }
 
     @Test
     public void shutdownTest()
-        throws JsonParseException, JsonMappingException, IOException, SickBeardException
+        throws SickBeardException
     {
         assertNull( sb.shutdown().call() );
     }
 
     @Test
     public void restartTest()
-        throws JsonParseException, JsonMappingException, IOException, SickBeardException
+        throws SickBeardException
     {
         assertNull( sb.restart().call() );
     }
 
     @Test
     public void getRootDirsTest()
-        throws JsonParseException, JsonMappingException, IOException, SickBeardException
+        throws SickBeardException
     {
         List<RootDir> rootDirs = sb.getRootDirs().call();
         assertEquals( 3, rootDirs.size() );
@@ -119,7 +116,7 @@ public class SickBeardTest
 
     @Test
     public void getMessagesTest()
-        throws JsonParseException, JsonMappingException, IOException, SickBeardException
+        throws SickBeardException
     {
         List<Message> messages = sb.getMessages().call();
         assertEquals( 2, messages.size() );
@@ -137,7 +134,7 @@ public class SickBeardTest
 
     @Test
     public void getDefaultsTest()
-        throws JsonParseException, JsonMappingException, IOException, SickBeardException
+        throws SickBeardException
     {
         Defaults defaults = sb.getDefaults().call();
 
@@ -159,14 +156,14 @@ public class SickBeardTest
 
     @Test
     public void forceSearchTest()
-        throws JsonParseException, JsonMappingException, IOException, SickBeardException
+        throws SickBeardException
     {
         assertNull( sb.forceSearch().call() );
     }
 
     @Test
     public void deleteRootDirTest()
-        throws JsonParseException, JsonMappingException, IOException, SickBeardException
+        throws SickBeardException
     {
         List<RootDir> rootDirs = sb.deleteRootDir( "C:\\Temp" ).call();
         assertEquals( 2, rootDirs.size() );
@@ -184,7 +181,7 @@ public class SickBeardTest
 
     @Test
     public void checkSchedulerTest()
-        throws JsonParseException, JsonMappingException, IOException, SickBeardException
+        throws SickBeardException
     {
         Scheduler scheduler = sb.checkScheduler().call();
 
@@ -198,7 +195,7 @@ public class SickBeardTest
 
     @Test
     public void addRootDirTest()
-        throws JsonParseException, JsonMappingException, IOException, SickBeardException
+        throws SickBeardException
     {
         try
         {
@@ -230,7 +227,7 @@ public class SickBeardTest
 
     @Test
     public void miscTest()
-        throws JsonParseException, JsonMappingException, IOException, SickBeardException
+        throws SickBeardException
     {
         Misc misc = sb.misc().call();
 

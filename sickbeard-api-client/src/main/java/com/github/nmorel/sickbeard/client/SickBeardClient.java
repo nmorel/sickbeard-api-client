@@ -3,10 +3,12 @@ package com.github.nmorel.sickbeard.client;
 import com.github.nmorel.sickbeard.client.cmd.EpisodeCommands;
 import com.github.nmorel.sickbeard.client.cmd.ExceptionsCommands;
 import com.github.nmorel.sickbeard.client.cmd.FutureCommands;
+import com.github.nmorel.sickbeard.client.cmd.HistoryCommands;
 import com.github.nmorel.sickbeard.client.cmd.SickBeardCommands;
 import com.github.nmorel.sickbeard.client.cmd.impl.EpisodeCommandsImpl;
 import com.github.nmorel.sickbeard.client.cmd.impl.ExceptionsCommandsImpl;
 import com.github.nmorel.sickbeard.client.cmd.impl.FutureCommandsImpl;
+import com.github.nmorel.sickbeard.client.cmd.impl.HistoryCommandsImpl;
 import com.github.nmorel.sickbeard.client.cmd.impl.SickBeardCommandsImpl;
 
 public class SickBeardClient
@@ -20,6 +22,8 @@ public class SickBeardClient
     private ExceptionsCommands exceptions;
 
     private FutureCommands future;
+
+    private HistoryCommands history;
 
     public SickBeardClient( String url )
     {
@@ -65,6 +69,15 @@ public class SickBeardClient
             future = new FutureCommandsImpl( config );
         }
         return future;
+    }
+
+    public HistoryCommands history()
+    {
+        if ( null == history )
+        {
+            history = new HistoryCommandsImpl( config );
+        }
+        return history;
     }
 
 }
