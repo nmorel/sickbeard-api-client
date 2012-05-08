@@ -4,11 +4,13 @@ import com.github.nmorel.sickbeard.client.cmd.EpisodeCommands;
 import com.github.nmorel.sickbeard.client.cmd.ExceptionsCommands;
 import com.github.nmorel.sickbeard.client.cmd.FutureCommands;
 import com.github.nmorel.sickbeard.client.cmd.HistoryCommands;
+import com.github.nmorel.sickbeard.client.cmd.LogsCommands;
 import com.github.nmorel.sickbeard.client.cmd.SickBeardCommands;
 import com.github.nmorel.sickbeard.client.cmd.impl.EpisodeCommandsImpl;
 import com.github.nmorel.sickbeard.client.cmd.impl.ExceptionsCommandsImpl;
 import com.github.nmorel.sickbeard.client.cmd.impl.FutureCommandsImpl;
 import com.github.nmorel.sickbeard.client.cmd.impl.HistoryCommandsImpl;
+import com.github.nmorel.sickbeard.client.cmd.impl.LogsCommandsImpl;
 import com.github.nmorel.sickbeard.client.cmd.impl.SickBeardCommandsImpl;
 
 public class SickBeardClient
@@ -24,6 +26,8 @@ public class SickBeardClient
     private FutureCommands future;
 
     private HistoryCommands history;
+
+    private LogsCommands logs;
 
     public SickBeardClient( String url )
     {
@@ -78,6 +82,15 @@ public class SickBeardClient
             history = new HistoryCommandsImpl( config );
         }
         return history;
+    }
+
+    public LogsCommands logs()
+    {
+        if ( null == logs )
+        {
+            logs = new LogsCommandsImpl( config );
+        }
+        return logs;
     }
 
 }
