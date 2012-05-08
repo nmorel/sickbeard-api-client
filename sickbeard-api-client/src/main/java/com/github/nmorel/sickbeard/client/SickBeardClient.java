@@ -5,6 +5,7 @@ import com.github.nmorel.sickbeard.client.cmd.ExceptionsCommands;
 import com.github.nmorel.sickbeard.client.cmd.FutureCommands;
 import com.github.nmorel.sickbeard.client.cmd.HistoryCommands;
 import com.github.nmorel.sickbeard.client.cmd.LogsCommands;
+import com.github.nmorel.sickbeard.client.cmd.ShowCommands;
 import com.github.nmorel.sickbeard.client.cmd.ShowsCommands;
 import com.github.nmorel.sickbeard.client.cmd.SickBeardCommands;
 import com.github.nmorel.sickbeard.client.cmd.impl.EpisodeCommandsImpl;
@@ -12,6 +13,7 @@ import com.github.nmorel.sickbeard.client.cmd.impl.ExceptionsCommandsImpl;
 import com.github.nmorel.sickbeard.client.cmd.impl.FutureCommandsImpl;
 import com.github.nmorel.sickbeard.client.cmd.impl.HistoryCommandsImpl;
 import com.github.nmorel.sickbeard.client.cmd.impl.LogsCommandsImpl;
+import com.github.nmorel.sickbeard.client.cmd.impl.ShowCommandsImpl;
 import com.github.nmorel.sickbeard.client.cmd.impl.ShowsCommandsImpl;
 import com.github.nmorel.sickbeard.client.cmd.impl.SickBeardCommandsImpl;
 
@@ -32,6 +34,8 @@ public class SickBeardClient
     private LogsCommands logs;
 
     private ShowsCommands shows;
+
+    private ShowCommands show;
 
     public SickBeardClient( String url )
     {
@@ -104,6 +108,15 @@ public class SickBeardClient
             shows = new ShowsCommandsImpl( config );
         }
         return shows;
+    }
+
+    public ShowCommands show()
+    {
+        if ( null == show )
+        {
+            show = new ShowCommandsImpl( config );
+        }
+        return show;
     }
 
 }

@@ -148,7 +148,7 @@ public class Show
     private String tvrageId;
     private String tvrageName;
 
-    private Show( Builder builder )
+    protected Show( Builder builder )
     {
         this.tvdbId = builder.tvdbId;
         this.airByDate = builder.airByDate;

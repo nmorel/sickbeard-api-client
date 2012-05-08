@@ -5,10 +5,10 @@ import org.slf4j.LoggerFactory;
 
 import com.github.nmorel.sickbeard.client.SickBeardConfig;
 import com.github.nmorel.sickbeard.client.request.SimpleRequest;
-import com.github.nmorel.sickbeard.model.result.Episode;
+import com.github.nmorel.sickbeard.model.result.DetailedEpisode;
 
 public class EpisodeDisplayRequest
-    extends SimpleRequest<Episode>
+    extends SimpleRequest<DetailedEpisode>
 {
     private static final Logger LOGGER = LoggerFactory.getLogger( EpisodeDisplayRequest.class );
 
@@ -52,8 +52,8 @@ public class EpisodeDisplayRequest
     }
 
     @Override
-    protected Class<Episode> getReturnType()
+    protected Class<DetailedEpisode> getReturnType()
     {
-        return Episode.class;
+        return DetailedEpisode.class;
     }
 }

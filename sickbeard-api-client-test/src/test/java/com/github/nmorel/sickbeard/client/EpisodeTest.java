@@ -12,7 +12,7 @@ import com.github.nmorel.sickbeard.client.cmd.EpisodeCommands;
 import com.github.nmorel.sickbeard.client.exceptions.SickBeardException;
 import com.github.nmorel.sickbeard.model.enums.Quality;
 import com.github.nmorel.sickbeard.model.enums.Status;
-import com.github.nmorel.sickbeard.model.result.Episode;
+import com.github.nmorel.sickbeard.model.result.DetailedEpisode;
 import com.github.nmorel.sickbeard.model.result.EpisodeSearch;
 
 @SuppressWarnings( "deprecation" )
@@ -30,7 +30,7 @@ public class EpisodeTest
     public void displayTest()
         throws SickBeardException
     {
-        Episode ep = episode.display( "101501", 3, 1 ).setFullPath( true ).call();
+        DetailedEpisode ep = episode.display( "101501", 3, 1 ).setFullPath( true ).call();
 
         assertEquals( new Date( 111, 6, 28 ), ep.getAirdate() );
         assertEquals(

@@ -1,4 +1,4 @@
 sickbeard-api
 =============
 
-Java API for SickBeard
+Java Client API for SickBeard

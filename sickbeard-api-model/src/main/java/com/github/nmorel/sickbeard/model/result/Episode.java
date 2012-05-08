@@ -18,10 +18,6 @@ public class Episode
         @JsonDeserialize( using = DateDeserializer.class )
         private Date airdate;
 
-        private String description;
-
-        private String location;
-
         private String name;
 
         private Quality quality;
@@ -31,18 +27,6 @@ public class Episode
         public Builder airdate( Date airdate )
         {
             this.airdate = airdate;
-            return this;
-        }
-
-        public Builder description( String description )
-        {
-            this.description = description;
-            return this;
-        }
-
-        public Builder location( String location )
-        {
-            this.location = location;
             return this;
         }
 
@@ -71,17 +55,13 @@ public class Episode
     }
 
     private Date airdate;
-    private String description;
-    private String location;
     private String name;
     private Quality quality;
     private Status status;
 
-    private Episode( Builder builder )
+    protected Episode( Builder builder )
     {
         this.airdate = builder.airdate;
-        this.description = builder.description;
-        this.location = builder.location;
         this.name = builder.name;
         this.quality = builder.quality;
         this.status = builder.status;
@@ -90,16 +70,6 @@ public class Episode
     public Date getAirdate()
     {
         return airdate;
-    }
-
-    public String getDescription()
-    {
-        return description;
-    }
-
-    public String getLocation()
-    {
-        return location;
     }
 
     public String getName()
@@ -123,10 +93,6 @@ public class Episode
         StringBuilder builder2 = new StringBuilder();
         builder2.append( "Episode{airdate=" );
         builder2.append( airdate );
-        builder2.append( ", description=" );
-        builder2.append( description );
-        builder2.append( ", location=" );
-        builder2.append( location );
         builder2.append( ", name=" );
         builder2.append( name );
         builder2.append( ", quality=" );

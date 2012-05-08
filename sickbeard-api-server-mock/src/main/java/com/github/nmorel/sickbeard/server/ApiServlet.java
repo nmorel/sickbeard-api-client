@@ -42,6 +42,14 @@ public class ApiServlet
         {
             filename = "shows.sort.name.json";
         }
+        else if ( cmd.equals( "show.seasonlist" ) && "asc".equals( req.getParameter( "sort" ) ) )
+        {
+            filename = "show.seasonlist.asc.json";
+        }
+        else if ( cmd.equals( "show.seasons" ) && null != req.getParameter( "season" ) )
+        {
+            filename = "show.season.json";
+        }
         else
         {
             filename = resources.getFilename( cmd );
