@@ -33,7 +33,15 @@ public class ApiServlet
         throws ServletException, IOException
     {
         String cmd = req.getParameter( "cmd" );
-        String filename = resources.getFilename( cmd );
+        String filename;
+        if ( cmd.equals( "exceptions" ) && null == req.getParameter( "tvdbid" ) )
+        {
+            filename = "exceptions.shows.json";
+        }
+        else
+        {
+            filename = resources.getFilename( cmd );
+        }
 
         if ( filename.endsWith( ".json" ) )
         {

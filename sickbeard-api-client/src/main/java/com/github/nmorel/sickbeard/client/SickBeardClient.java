@@ -1,8 +1,10 @@
 package com.github.nmorel.sickbeard.client;
 
 import com.github.nmorel.sickbeard.client.cmd.Episode;
+import com.github.nmorel.sickbeard.client.cmd.Exceptions;
 import com.github.nmorel.sickbeard.client.cmd.SickBeard;
 import com.github.nmorel.sickbeard.client.cmd.impl.EpisodeImpl;
+import com.github.nmorel.sickbeard.client.cmd.impl.ExceptionsImpl;
 import com.github.nmorel.sickbeard.client.cmd.impl.SickBeardImpl;
 
 public class SickBeardClient
@@ -12,6 +14,8 @@ public class SickBeardClient
     private SickBeard sb;
 
     private Episode episode;
+
+    private Exceptions exceptions;
 
     public SickBeardClient( String url )
     {
@@ -39,6 +43,15 @@ public class SickBeardClient
             episode = new EpisodeImpl( config );
         }
         return episode;
+    }
+
+    public Exceptions exceptions()
+    {
+        if ( null == exceptions )
+        {
+            exceptions = new ExceptionsImpl( config );
+        }
+        return exceptions;
     }
 
 }
