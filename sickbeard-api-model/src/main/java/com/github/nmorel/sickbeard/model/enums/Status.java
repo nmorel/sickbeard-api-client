@@ -6,7 +6,7 @@ import com.github.nmorel.sickbeard.model.deserializer.StatusDeserializer;
 @JsonDeserialize( using = StatusDeserializer.class )
 public enum Status
 {
-    WANTED( "wanted" ), SKIPPED( "skipped" ), ARCHIVED( "archived" ), IGNORED( "ignored" );
+    WANTED( "wanted" ), SKIPPED( "skipped" ), ARCHIVED( "archived" ), IGNORED( "ignored" ), DOWNLOADED( "downloaded" );
 
     private String sickBeardValue;
 

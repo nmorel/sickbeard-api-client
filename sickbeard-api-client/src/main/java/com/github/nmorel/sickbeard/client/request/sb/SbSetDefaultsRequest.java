@@ -54,7 +54,7 @@ public class SbSetDefaultsRequest
                 {
                     builder.append( PARAM_SEPARATOR );
                 }
-                builder.append( quality.getSickBeardValue() );
+                builder.append( quality.getIdentifier() );
             }
         }
         setParameter( PARAM_ARCHIVE, builder.toString() );
@@ -86,7 +86,7 @@ public class SbSetDefaultsRequest
                 {
                     builder.append( PARAM_SEPARATOR );
                 }
-                builder.append( quality.getSickBeardValue() );
+                builder.append( quality.getIdentifier() );
             }
         }
         setParameter( PARAM_INITIAL, builder.toString() );

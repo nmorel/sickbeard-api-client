@@ -21,7 +21,7 @@ public class QualityDeserializer
         {
             return null;
         }
-        return Quality.fromSickBeardValue( value );
+        return Quality.fromIdentifierOrLabel( value );
     }
 
 }
