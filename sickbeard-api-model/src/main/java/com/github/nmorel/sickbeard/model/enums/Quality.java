@@ -7,7 +7,8 @@ import com.github.nmorel.sickbeard.model.deserializer.QualityDeserializer;
 public enum Quality
 {
     SD_TV( "sdtv", "SD TV" ), SD_DVD( "sddvd", "SD DVD" ), HD_TV( "hdtv", "HD TV" ), HD_WEB_DL( "hdwebdl", "720p WEB-DL" ), HD_BR( "hdbluray",
-        "720p BluRay" ), FULL_HD_BR( "fullhdbluray", "1080p BluRay" ), UNKNOWN( "unknown", "N/A" ), ANY( "any", "Any" );
+        "720p BluRay" ), FULL_HD_BR( "fullhdbluray", "1080p BluRay" ), UNKNOWN( "unknown", "N/A" ), CUSTOM( "custom", "Custom" ), SD( "sd", "SD" ),
+    HD( "hd", "HD" ), ANY( "any", "Any" );
 
     private String identifier;
 

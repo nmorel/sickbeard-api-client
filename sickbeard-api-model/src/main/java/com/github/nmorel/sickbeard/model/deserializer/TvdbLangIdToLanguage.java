@@ -22,5 +22,4 @@ public class TvdbLangIdToLanguage
         }
         return Language.fromTvdbId( jp.getIntValue() );
     }
-
 }

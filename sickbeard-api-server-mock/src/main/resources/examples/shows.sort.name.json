@@ -1,0 +1,70 @@
+{
+    "data": {
+        "Conan (2010)": {
+            "air_by_date": 1,
+            "cache": {
+                "banner": 1,
+                "poster": 1
+            },
+            "language": "en",
+            "network": "TBS Superstation",
+            "next_ep_airdate": "2011-11-28",
+            "paused": 0,
+            "quality": "Custom",
+            "status": "Continuing",
+            "tvdbid": 194751,
+            "tvrage_id": 0,
+            "tvrage_name": ""
+        },
+        "Law & Order: Criminal Intent": {
+            "air_by_date": 0,
+            "cache": {
+                "banner": 1,
+                "poster": 1
+            },
+            "language": "en",
+            "network": "USA Network",
+            "next_ep_airdate": "",
+            "paused": 0,
+            "quality": "HD",
+            "status": "Ended",
+            "tvdbid": 71489,
+            "tvrage_id": 4203,
+            "tvrage_name": "Law & Order: Criminal Intent"
+        },
+        "NTSF:SD:SUV::": {
+            "air_by_date": 0,
+            "cache": {
+                "banner": 1,
+                "poster": 1
+            },
+            "language": "en",
+            "network": "Cartoon Network",
+            "next_ep_airdate": "",
+            "paused": 1,
+            "quality": "Custom",
+            "status": "Continuing",
+            "tvdbid": 248261,
+            "tvrage_id": 28439,
+            "tvrage_name": "NTSF:SD:SUV"
+        },
+        "Undercover Boss (US)": {
+            "air_by_date": 0,
+            "cache": {
+                "banner": 0,
+                "poster": 0
+            },
+            "language": "fr",
+            "network": "CBS",
+            "next_ep_airdate": "2012-01-15",
+            "paused": 0,
+            "quality": "Any",
+            "status": "Continuing",
+            "tvdbid": 140141,
+            "tvrage_id": 22657,
+            "tvrage_name": "Undercover Boss"
+        }
+    },
+    "message": "",
+    "result": "success"
+}

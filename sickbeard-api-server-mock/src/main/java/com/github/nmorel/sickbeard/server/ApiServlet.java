@@ -38,6 +38,10 @@ public class ApiServlet
         {
             filename = "exceptions.shows.json";
         }
+        else if ( cmd.equals( "shows" ) && "name".equals( req.getParameter( "sort" ) ) )
+        {
+            filename = "shows.sort.name.json";
+        }
         else
         {
             filename = resources.getFilename( cmd );

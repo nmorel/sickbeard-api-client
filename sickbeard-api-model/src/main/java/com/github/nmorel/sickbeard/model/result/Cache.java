@@ -45,7 +45,7 @@ public class Cache
         return banner;
     }
 
-    public boolean getPoster()
+    public boolean isPoster()
     {
         return poster;
     }

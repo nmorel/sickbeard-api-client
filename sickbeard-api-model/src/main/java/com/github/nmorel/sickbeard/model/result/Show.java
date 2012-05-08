@@ -6,6 +6,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 import com.github.nmorel.sickbeard.model.deserializer.DateDeserializer;
+import com.github.nmorel.sickbeard.model.deserializer.ShowStatusDeserializer;
+import com.github.nmorel.sickbeard.model.deserializer.TvdbLangAbbreviationToLanguage;
+import com.github.nmorel.sickbeard.model.enums.Language;
+import com.github.nmorel.sickbeard.model.enums.Quality;
+import com.github.nmorel.sickbeard.model.enums.ShowStatus;
 import com.github.nmorel.sickbeard.model.result.Show.Builder;
 
 @JsonDeserialize( builder = Builder.class )
@@ -14,29 +19,37 @@ public class Show
     @JsonPOJOBuilder( withPrefix = "" )
     public static class Builder
     {
+        @JsonProperty( value = "tvdbid" )
         private String tvdbId;
 
         @JsonProperty( value = "air_by_date" )
         private boolean airByDate;
 
+        @JsonProperty( value = "cache" )
         private Cache cache;
 
-        private String language;
+        @JsonDeserialize( using = TvdbLangAbbreviationToLanguage.class )
+        private Language language;
 
+        @JsonProperty( value = "network" )
         private String network;
 
         @JsonProperty( value = "next_ep_airdate" )
         @JsonDeserialize( using = DateDeserializer.class )
         private Date nextEpAirdate;
 
+        @JsonProperty( value = "paused" )
         private boolean paused;
 
-        private String quality;
+        @JsonProperty( value = "quality" )
+        private Quality quality;
 
         @JsonProperty( value = "show_name" )
         private String showName;
 
-        private String status;
+        @JsonDeserialize( using = ShowStatusDeserializer.class )
+        @JsonProperty( value = "status" )
+        private ShowStatus status;
 
         @JsonProperty( value = "tvrage_id" )
         private String tvrageId;
@@ -62,7 +75,7 @@ public class Show
             return this;
         }
 
-        public Builder language( String language )
+        public Builder language( Language language )
         {
             this.language = language;
             return this;
@@ -86,7 +99,7 @@ public class Show
             return this;
         }
 
-        public Builder quality( String quality )
+        public Builder quality( Quality quality )
         {
             this.quality = quality;
             return this;
@@ -98,7 +111,7 @@ public class Show
             return this;
         }
 
-        public Builder status( String status )
+        public Builder status( ShowStatus status )
         {
             this.status = status;
             return this;
@@ -125,13 +138,13 @@ public class Show
     private String tvdbId;
     private boolean airByDate;
     private Cache cache;
-    private String language;
+    private Language language;
     private String network;
     private Date nextEpAirdate;
     private boolean paused;
-    private String quality;
+    private Quality quality;
     private String showName;
-    private String status;
+    private ShowStatus status;
     private String tvrageId;
     private String tvrageName;
 
@@ -166,7 +179,7 @@ public class Show
         return cache;
     }
 
-    public String getLanguage()
+    public Language getLanguage()
     {
         return language;
     }
@@ -186,7 +199,7 @@ public class Show
         return paused;
     }
 
-    public String getQuality()
+    public Quality getQuality()
     {
         return quality;
     }
@@ -196,7 +209,7 @@ public class Show
         return showName;
     }
 
-    public String getStatus()
+    public ShowStatus getStatus()
     {
         return status;
     }

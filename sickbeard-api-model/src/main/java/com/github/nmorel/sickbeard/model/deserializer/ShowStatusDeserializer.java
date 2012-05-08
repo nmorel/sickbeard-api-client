@@ -11,7 +11,6 @@ import com.github.nmorel.sickbeard.model.enums.ShowStatus;
 public class ShowStatusDeserializer
     extends JsonDeserializer<ShowStatus>
 {
-
     @Override
     public ShowStatus deserialize( JsonParser jp, DeserializationContext ctxt )
         throws IOException, JsonProcessingException
@@ -23,5 +22,4 @@ public class ShowStatusDeserializer
         }
         return ShowStatus.fromSickBeardValue( value );
     }
-
 }

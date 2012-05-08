@@ -11,7 +11,6 @@ import com.github.nmorel.sickbeard.model.enums.ResultEnum;
 public class ResultEnumDeserializer
     extends JsonDeserializer<ResultEnum>
 {
-
     @Override
     public ResultEnum deserialize( JsonParser jp, DeserializationContext ctxt )
         throws IOException, JsonProcessingException
@@ -23,5 +22,4 @@ public class ResultEnumDeserializer
         }
         return ResultEnum.fromIdentifier( value );
     }
-
 }

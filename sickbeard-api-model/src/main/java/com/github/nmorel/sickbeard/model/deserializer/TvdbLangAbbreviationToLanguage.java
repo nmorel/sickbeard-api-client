@@ -6,13 +6,13 @@ import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonDeserializer;
-import com.github.nmorel.sickbeard.model.enums.Quality;
+import com.github.nmorel.sickbeard.model.enums.Language;
 
-public class QualityDeserializer
-    extends JsonDeserializer<Quality>
+public class TvdbLangAbbreviationToLanguage
+    extends JsonDeserializer<Language>
 {
     @Override
-    public Quality deserialize( JsonParser jp, DeserializationContext ctxt )
+    public Language deserialize( JsonParser jp, DeserializationContext ctxt )
         throws IOException, JsonProcessingException
     {
         String value = jp.getText();
@@ -20,6 +20,6 @@ public class QualityDeserializer
         {
             return null;
         }
-        return Quality.fromIdentifierOrLabel( value );
+        return Language.fromTvdbAbbreviation( value );
     }
 }
