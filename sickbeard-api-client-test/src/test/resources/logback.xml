@@ -9,7 +9,7 @@
 
   <logger name="com.github.nmorel.sickbeard" level="DEBUG" />
 
-  <root level="DEBUG">
+  <root level="WARN">
     <appender-ref ref="STDOUT" />
   </root>
 </configuration>

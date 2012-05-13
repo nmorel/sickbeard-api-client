@@ -2,9 +2,17 @@ package com.github.nmorel.sickbeard.client.request;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.LinkedHashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 
-import org.apache.commons.httpclient.HttpException;
-import org.apache.commons.httpclient.methods.PostMethod;
+import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.message.BasicNameValuePair;
 import org.slf4j.Logger;
 
 import com.github.nmorel.sickbeard.client.SickBeardConfig;
@@ -23,12 +31,12 @@ public abstract class AbstractRequest<T>
 
     private SickBeardConfig config;
 
-    private PostMethod method;
+    private Map<String, String> parameters;
 
     protected AbstractRequest( SickBeardConfig config, String command )
     {
         this.config = config;
-        this.method = new PostMethod( config.getUrl() );
+        this.parameters = new LinkedHashMap<String, String>();
         setParameter( PARAM_CMD, command );
     }
 
@@ -58,7 +66,7 @@ public abstract class AbstractRequest<T>
      */
     protected void setParameter( String key, String value )
     {
-        method.setParameter( key, value );
+        this.parameters.put( key, value );
     }
 
     protected String convertBooleanParameter( boolean value )
@@ -72,21 +80,21 @@ public abstract class AbstractRequest<T>
     {
         try
         {
+            getLogger().debug( "Calling SickBeard command '{}' with parameters : {}", getCommand(), parameters );
 
-            getLogger().debug( "Calling SickBeard command '{}' with parameters : {}", getCommand(), method.getParameters() );
+            HttpPost request = new HttpPost( config.getUrl() );
+            List<NameValuePair> nameValuePairs = new LinkedList<NameValuePair>();
+            for ( Entry<String, String> parameter : parameters.entrySet() )
+            {
+                nameValuePairs.add( new BasicNameValuePair( parameter.getKey(), parameter.getValue() ) );
+            }
+            request.setEntity( new UrlEncodedFormEntity( nameValuePairs ) );
 
-            InputStream stream;
-
+            InputStream stream = null;
             try
             {
-                getConfig().getClient().executeMethod( method );
-                stream = method.getResponseBodyAsStream();
-            }
-            catch ( HttpException e )
-            {
-                String message = "Error calling SickBeard";
-                getLogger().error( message, e );
-                throw new SickBeardException( message, e );
+                HttpResponse response = getConfig().getClient().execute( request );
+                stream = response.getEntity().getContent();
             }
             catch ( IOException e )
             {

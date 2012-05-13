@@ -9,14 +9,18 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import org.apache.commons.httpclient.HttpClient;
-import org.apache.commons.httpclient.MultiThreadedHttpConnectionManager;
-import org.apache.commons.httpclient.methods.PostMethod;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.xml.sax.SAXException;
@@ -54,7 +58,7 @@ public class SickBeardGenerator
     {
         if ( null == client )
         {
-            client = new HttpClient( new MultiThreadedHttpConnectionManager() );
+            client = new DefaultHttpClient();
         }
         return client;
     }
@@ -75,10 +79,11 @@ public class SickBeardGenerator
 
         // retrieve all the commands the api offers
         List<String> apiCommands = retrieveCommands();
-        System.out.println("assertEquals("+apiCommands.size()+", misc.getApiCommands().size());");
-        for(int i = 0; i<apiCommands.size(); i++)
+        System.out.println( "assertEquals(" + apiCommands.size() + ", misc.getApiCommands().size());" );
+        for ( int i = 0; i < apiCommands.size(); i++ )
         {
-            System.out.println( "assertEquals(\""+apiCommands.get( i )+"\", misc.getApiCommands().get("+i+"));" );
+            System.out
+                .println( "assertEquals(\"" + apiCommands.get( i ) + "\", misc.getApiCommands().get(" + i + "));" );
         }
 
         // retrieve the parameters and description of the commands
@@ -96,15 +101,15 @@ public class SickBeardGenerator
     private static List<String> retrieveCommands()
         throws IOException, JsonParseException, JsonMappingException
     {
-        PostMethod method = new PostMethod( url );
-        method.setParameter( "cmd", "sb" );
-        getClient().executeMethod( method );
+        HttpPost method = new HttpPost( url );
+        method.setEntity( new UrlEncodedFormEntity( Arrays.asList( new BasicNameValuePair( "cmd", "sb" ) ) ) );
+        HttpResponse response = getClient().execute( method );
 
-        SickBeardResult result = getMapper().readValue( method.getResponseBodyAsStream(), SickBeardResult.class );
+        SickBeardResult result = getMapper().readValue( response.getEntity().getContent(), SickBeardResult.class );
 
-        List<String> apiCommands = getMapper().readValue( result.getData().findValue( "api_commands" ).traverse(), new TypeReference<List<String>>()
-        {
-        } );
+        List<String> apiCommands =
+            getMapper().readValue( result.getData().findValue( "api_commands" ).traverse(),
+                new TypeReference<List<String>>() {} );
         return apiCommands;
     }
 
@@ -114,12 +119,13 @@ public class SickBeardGenerator
         Map<String, CommandInfo> commandInfos = new LinkedHashMap<String, CommandInfo>();
         for ( String command : apiCommands )
         {
-            PostMethod method = new PostMethod( url );
-            method.setParameter( "cmd", command );
-            method.setParameter( "help", "1" );
-            getClient().executeMethod( method );
+            HttpPost method = new HttpPost( url );
+            method.setEntity( new UrlEncodedFormEntity( Arrays.asList( new BasicNameValuePair( "cmd", command ),
+                new BasicNameValuePair( "help", "1" ) ) ) );
+            HttpResponse response = getClient().execute( method );
 
-            SickBeardResult paramsResult = getMapper().readValue( method.getResponseBodyAsStream(), SickBeardResult.class );
+            SickBeardResult paramsResult =
+                getMapper().readValue( response.getEntity().getContent(), SickBeardResult.class );
             JsonParser parser = paramsResult.getData().traverse();
             parser.setCodec( getMapper() );
             Parameters parameters = getMapper().readValue( parser, Parameters.class );
@@ -151,7 +157,8 @@ public class SickBeardGenerator
         Document dom = WebRequest.getHtmlDocument( new URL( "http://sickbeard.com/api/" ) );
 
         // retrieve the node containing the api examples
-        List<Node> examplesNodes = XPathUtils.selectNodes( "//DIV[contains(@id,'api-content')]//DIV[contains(@class,'example')]", dom );
+        List<Node> examplesNodes =
+            XPathUtils.selectNodes( "//DIV[contains(@id,'api-content')]//DIV[contains(@class,'example')]", dom );
 
         for ( Node node : examplesNodes )
         {
@@ -174,7 +181,9 @@ public class SickBeardGenerator
             }
             else if ( "IMG".equalsIgnoreCase( preOrImg.getNodeName() ) )
             {
-                file = saveImage( command, "http://sickbeard.com/api/" + XPathUtils.getAttribute( "src", preOrImg ).substring( 2 ) );
+                file =
+                    saveImage( command, "http://sickbeard.com/api/"
+                        + XPathUtils.getAttribute( "src", preOrImg ).substring( 2 ) );
             }
             else
             {

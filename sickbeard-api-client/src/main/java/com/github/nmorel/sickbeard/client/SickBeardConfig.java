@@ -1,7 +1,7 @@
 package com.github.nmorel.sickbeard.client;
 
-import org.apache.commons.httpclient.HttpClient;
-import org.apache.commons.httpclient.MultiThreadedHttpConnectionManager;
+import org.apache.http.client.HttpClient;
+import org.apache.http.impl.client.DefaultHttpClient;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -23,7 +23,7 @@ public class SickBeardConfig
         if ( null == builder.client )
         {
             // Create default client
-            client = new HttpClient( new MultiThreadedHttpConnectionManager() );
+            client = new DefaultHttpClient();
         }
         else
         {

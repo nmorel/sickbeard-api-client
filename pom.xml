@@ -19,7 +19,7 @@
     <maven-surefire.version>2.12</maven-surefire.version>
 
     <!-- HttpClient dependencies version -->
-    <httpclient.version>3.1</httpclient.version>
+    <httpclient.version>4.1.3</httpclient.version>
 
     <!-- Jackson dependencies version -->
     <jackson.version>2.0.1</jackson.version>
@@ -43,9 +43,15 @@
 
       <!-- HttpClient dependencies -->
       <dependency>
-        <groupId>commons-httpclient</groupId>
-        <artifactId>commons-httpclient</artifactId>
+        <groupId>org.apache.httpcomponents</groupId>
+        <artifactId>httpclient</artifactId>
         <version>${httpclient.version}</version>
+        <exclusions>
+          <exclusion>
+            <artifactId>commons-logging</artifactId>
+            <groupId>commons-logging</groupId>
+          </exclusion>
+        </exclusions>
       </dependency>
 
       <!-- Jackson dependencies -->

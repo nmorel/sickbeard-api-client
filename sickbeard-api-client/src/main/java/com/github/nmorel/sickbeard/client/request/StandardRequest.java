@@ -34,52 +34,69 @@ public abstract class StandardRequest<T>
     protected T handleResponse( InputStream response )
         throws SickBeardException
     {
-        SickBeardResult result;
         try
         {
-            result = getConfig().getMapper().readValue( response, SickBeardResult.class );
-        }
-        catch ( JsonParseException e )
-        {
-            String message = "Error while parsing the response";
-            getLogger().error( message, e );
-            throw new SickBeardException( message, e );
-        }
-        catch ( JsonMappingException e )
-        {
-            String message = "Error while parsing the response";
-            getLogger().error( message, e );
-            throw new SickBeardException( message, e );
-        }
-        catch ( IOException e )
-        {
-            String message = "Error while parsing the response";
-            getLogger().error( message, e );
-            throw new SickBeardException( message, e );
-        }
+            SickBeardResult result;
+            try
+            {
+                result = getConfig().getMapper().readValue( response, SickBeardResult.class );
+            }
+            catch ( JsonParseException e )
+            {
+                String message = "Error while parsing the response";
+                getLogger().error( message, e );
+                throw new SickBeardException( message, e );
+            }
+            catch ( JsonMappingException e )
+            {
+                String message = "Error while parsing the response";
+                getLogger().error( message, e );
+                throw new SickBeardException( message, e );
+            }
+            catch ( IOException e )
+            {
+                String message = "Error while parsing the response";
+                getLogger().error( message, e );
+                throw new SickBeardException( message, e );
+            }
 
-        String message = result.getMessage();
-        switch ( result.getResult() )
+            String message = result.getMessage();
+            switch ( result.getResult() )
+            {
+                case DENIED_RESULT:
+                    getLogger().error( message );
+                    throw new SickBeardDeniedResultException( message );
+                case FAILURE:
+                    getLogger().error( message );
+                    throw new SickBeardFailureException( message );
+                case ERROR:
+                    getLogger().error( message );
+                    throw new SickBeardErrorException( message );
+                case FATAL:
+                    getLogger().error( message );
+                    throw new SickBeardFatalException( message );
+                case TIMEOUT:
+                    getLogger().error( message );
+                    throw new SickBeardTimeoutException( message );
+                case SUCCESS:
+                default:
+                    getLogger().debug( "Success : message={}, data={}", message, result.getData() );
+                    return doOnSuccess( result.getData() );
+            }
+        }
+        finally
         {
-            case DENIED_RESULT:
-                getLogger().error( message );
-                throw new SickBeardDeniedResultException( message );
-            case FAILURE:
-                getLogger().error( message );
-                throw new SickBeardFailureException( message );
-            case ERROR:
-                getLogger().error( message );
-                throw new SickBeardErrorException( message );
-            case FATAL:
-                getLogger().error( message );
-                throw new SickBeardFatalException( message );
-            case TIMEOUT:
-                getLogger().error( message );
-                throw new SickBeardTimeoutException( message );
-            case SUCCESS:
-            default:
-                getLogger().debug( "Success : message={}, data={}", message, result.getData() );
-                return doOnSuccess( result.getData() );
+            if ( null != response )
+            {
+                try
+                {
+                    response.close();
+                }
+                catch ( IOException e )
+                {
+                    getLogger().warn( "Can't close the stream", e );
+                }
+            }
         }
     }
 
