@@ -61,8 +61,6 @@ public class ShowSeasonListRequest
     @Override
     protected TypeReference<?> getReturnType()
     {
-        return new TypeReference<List<Integer>>()
-        {
-        };
+        return new TypeReference<List<Integer>>() {};
     }
 }

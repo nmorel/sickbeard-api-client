@@ -45,8 +45,6 @@ public class ShowSeasonRequest
     @Override
     protected TypeReference<?> getReturnType()
     {
-        return new TypeReference<Map<Integer, Episode>>()
-        {
-        };
+        return new TypeReference<Map<Integer, Episode>>() {};
     }
 }

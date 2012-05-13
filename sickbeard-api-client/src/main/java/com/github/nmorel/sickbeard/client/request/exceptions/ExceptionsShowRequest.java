@@ -42,8 +42,6 @@ public class ExceptionsShowRequest
     @Override
     protected TypeReference<?> getReturnType()
     {
-        return new TypeReference<List<String>>()
-        {
-        };
+        return new TypeReference<List<String>>() {};
     }
 }

@@ -70,9 +70,8 @@ public class ShowsDisplayRequest
     protected List<Show> convertData( JsonNode data )
         throws JsonParseException, JsonMappingException, IOException
     {
-        Map<String, Show.Builder> map = getConfig().getMapper().readValue( data.traverse(), new TypeReference<Map<String, Show.Builder>>()
-        {
-        } );
+        Map<String, Show.Builder> map =
+            getConfig().getMapper().readValue( data.traverse(), new TypeReference<Map<String, Show.Builder>>() {} );
 
         List<Show> shows = new LinkedList<Show>();
         for ( Entry<String, Show.Builder> entry : map.entrySet() )

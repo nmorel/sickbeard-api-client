@@ -37,8 +37,6 @@ public class ExceptionsShowsRequest
     @Override
     protected TypeReference<?> getReturnType()
     {
-        return new TypeReference<Map<String, List<String>>>()
-        {
-        };
+        return new TypeReference<Map<String, List<String>>>() {};
     }
 }

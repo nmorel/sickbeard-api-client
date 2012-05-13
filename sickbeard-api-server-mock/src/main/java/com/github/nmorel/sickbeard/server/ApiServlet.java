@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 public class ApiServlet
     extends HttpServlet
 {
+    private static final long serialVersionUID = -3006322504413658392L;
+
     private ResourcesLoader resources;
 
     @Override

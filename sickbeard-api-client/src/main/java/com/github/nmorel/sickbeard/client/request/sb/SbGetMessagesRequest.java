@@ -37,8 +37,6 @@ public class SbGetMessagesRequest
     @Override
     protected TypeReference<?> getReturnType()
     {
-        return new TypeReference<List<Message>>()
-        {
-        };
+        return new TypeReference<List<Message>>() {};
     }
 }

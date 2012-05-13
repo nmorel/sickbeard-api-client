@@ -62,8 +62,6 @@ public class HistoryDisplayRequest
     @Override
     protected TypeReference<?> getReturnType()
     {
-        return new TypeReference<List<History>>()
-        {
-        };
+        return new TypeReference<List<History>>() {};
     }
 }

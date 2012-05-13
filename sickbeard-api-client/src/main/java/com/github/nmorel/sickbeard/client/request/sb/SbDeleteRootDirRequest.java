@@ -43,8 +43,6 @@ public class SbDeleteRootDirRequest
     @Override
     protected TypeReference<?> getReturnType()
     {
-        return new TypeReference<List<RootDir>>()
-        {
-        };
+        return new TypeReference<List<RootDir>>() {};
     }
 }
